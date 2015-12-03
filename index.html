@@ -19,8 +19,8 @@
     <script src="js/controllers/MainController.js"></script>
   </head>
 
-  <body ng-app="myApp">
-<!-- Налаштування кошику -->
+  <body ng-app="myApp" ng-controller="MainController as main">
+    <!-- Налаштування кошику -->
     <script>
       cartjs.initialize({  
         emailOrdersTo  : 'zoorned@gmail.com',
@@ -34,55 +34,62 @@
       
     </script>
       
-<!-- Заголовок -->
-    <div class="header">
+    <!-- Заголовок -->
+    <div class="header" >
       <div id="navy" class="container">
-        <h1>Вітаємо у нашому магазині!</h1>
+        <h1>UkrBook</h1>
           <ul id="navbar" class="nav nav-tabs navbar-right">
-            <li role="presentation" class="active"><a href="index.html">Головна</a></li>
-            <li role="presentation"><a href="contacts.html">Контакти</a></li>
-            <li role="presentation"><a href="about.html">Про нас</a></li>
+            <li ng-class="{active: tab === 1}"><a href ng-click="tab = 1">Головна</a></li>
+            <li ng-class="{active: tab === 2}"><a href ng-click="tab = 2">Контакти</a></li>
+            <li ng-class="{active: tab === 3}"><a href ng-click="tab = 3">Про нас</a></li>
           </ul>
       </div>
     </div>
-      
-    <!-- Оголошення контроллера -->
-    <div class="main" ng-controller="MainController">
-      <div class="container">
-        <h1>{{ title }}</h1>
-        <div>
-          <h2>{{ promo }} <a href="#" class="cart-button">
-            <span class="cart-button-quantity"></span>
-            <span class="cart-button-label"></span>
-          </a></h2>
-                  
-        </div>
-        
-        <!-- Кошик -->
 
+    <div ng-init="tab = 1">
+      <!-- Головна сторінка -->
+      <div class="main" ng-show="tab === 1">
+        <div class="container">
+          <h3 id="promo">Читай книги рідною мовою!</h3>
+          <div>
+            <h2>Щоб додати книгу до кошику - клацніть на +.<a href="#" class="cart-button">
+              <span class="cart-button-quantity"></span>
+              <span class="cart-button-label"></span>
+            </a></h2>       
+          </div>
         
-        <!-- Виведення продуктів -->      
-        <div ng-repeat="product in products" class="col-md-3"> 
-            <div class="thumbnail"> 
-                <img ng-src="{{ product.cover }}"> 
-                <p class="title">{{ product.name }}</p> 
-                <p class="author">{{ product.author }}</p>
-                <p class="price">{{ product.price + " &#8372;" }}</p> 
-                <p class="date">{{ product.pubdate | date }}</p> 
-                <div class="wrap">
-                        <p class="add" ng-click="added($index)">+</p>
-                </div>
-            </div> 
+          <!-- Виведення продуктів -->      
+          <div ng-repeat="product in products" class="col-md-3"> 
+              <div class="thumbnail"> 
+                  <img ng-src="{{ product.cover }}"> 
+                  <p class="title">{{ product.name }}</p> 
+                  <p class="author">{{ product.author }}</p>
+                  <p class="price">{{ product.price + " &#8372;" }}</p> 
+                  <p class="date">{{ product.pubdate | date }}</p> 
+                  <div class="wrap">
+                          <p class="add" ng-click="added($index)">+</p>
+                  </div>
+              </div> 
+          </div>
         </div>
-    </div>
-</div>
-    <!-- "Дно" сторінки -->
-    <div class="footer">
-      <div class="container">
-        <h1>Дякуємо за покупку!<br> Заходьте ще! ;) 
-          </h1>
-          
       </div>
+      <!-- Контакти -->
+      <div id="contacts" ng-show="tab === 2"> Є питання? Зв'яжіться з нами!<br> 
+          Телефон: 093 695 0971<br>
+          E-mail: zoorned@gmail.com 
+      </div>
+      <!-- Про -->
+      <div id='about' ng-show="tab === 3">
+        <h2> Ми являємось молодою командою, яка любить читати книжки і поважає рідну солов'їну мову. Ми хочемо, щоб українська мова поширювалась все більше і більше, тому в нашому магазині ви побачите книги виключно рідною мовою!!!</h2>
+      </div>
+
+      <!-- "Дно" сторінки -->
+      <div class="footer">
+        <div class="container">
+          <h1>Дякуємо за покупку!<br> Заходьте ще! ;) </h1>
+        </div>
+      </div>
+
     </div>
   </body>
 </html>

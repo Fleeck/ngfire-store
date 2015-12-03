@@ -1,7 +1,4 @@
 app.controller('MainController', ['$scope', function($scope) { 
-  $scope.title = 'UkrBook - читай книги рідною мовою!'; 
-  $scope.promo = 'Щоб додати книгу до кошику - клацніть на +. ';
-   // Масив Товарів
   $scope.products = [
   	{ 
     	name: 'Гаррі Поттер і в`язень Азкабану', 

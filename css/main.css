@@ -24,15 +24,6 @@ html, body {
  padding: 40px;
 }
 
-.main h1 {
- color: #F65A5B ;
- font-size: 64px;
- margin: 0 0 50px 0;
- padding: 10px 0;
-   line-height: 60px;
-   width: 50%;
-}
-
 .main h2 {
  background-color: #DDDDDD ;
  color: #329797 ;
@@ -155,4 +146,14 @@ html, body {
 #navbar {
   position: relative;
   top:33px;
+}
+
+#promo {
+   color: #F65A5B ;
+ font-size: 40px;
+ margin: 0 0 50px 0;
+ padding: 10px 0;
+   line-height: 60px;
+   width: 50%;
+
 }
