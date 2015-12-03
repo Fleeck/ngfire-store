@@ -7,7 +7,8 @@
     <!-- Twitter Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <!-- Шрифт -->
-    <link href='http://fonts.googleapis.com/css?family=Roboto:500,300,700,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:500,300,700,400'
+    rel='stylesheet' type='text/css'>
     <link href="css/main.css" rel="stylesheet" />
     <!-- AngularJS -->
     <script src="js/shared/angular.min.js"></script>
@@ -15,72 +16,75 @@
     <script src="http://salejs.com/v1/cart.js"></script>
     <!-- Модуль -->
     <script src="js/app.js"></script>
-    <!-- Контролер -->
+    <!-- Контролери -->
     <script src="js/controllers/MainController.js"></script>
+    <script src="js/controllers/PanelController.js"></script>
   </head>
 
-  <body ng-app="myApp" ng-controller="MainController as main">
+  <body ng-app="myApp">
     <!-- Налаштування кошику -->
     <script>
-      cartjs.initialize({  
+      cartjs.initialize({
         emailOrdersTo  : 'zoorned@gmail.com',
-        language       : 'ukrainian', 
+        language       : 'ukrainian',
         currency       : 'грн.',
-        requireName    : true,      
-        requirePhone   : true,      
-        requireEmail   : true,     
-        requireAddress : true,    
+        requireName    : true,
+        requirePhone   : true,
+        requireEmail   : true,
+        requireAddress : true,
       })
-      
     </script>
-      
+
     <!-- Заголовок -->
-    <div class="header" >
+    <div class="header" ng-controller="PanelController as panel">
       <div id="navy" class="container">
         <h1>UkrBook</h1>
           <ul id="navbar" class="nav nav-tabs navbar-right">
-            <li ng-class="{active: tab === 1}"><a href ng-click="tab = 1">Головна</a></li>
-            <li ng-class="{active: tab === 2}"><a href ng-click="tab = 2">Контакти</a></li>
-            <li ng-class="{active: tab === 3}"><a href ng-click="tab = 3">Про нас</a></li>
+            <li ng-class="{active: panel.isSelected(1)}"><a href ng-click="panel.selectTab(1)">Головна</a></li>
+            <li ng-class="{active: panel.isSelected(2)}"><a href ng-click="panel.selectTab(2)">Контакти</a></li>
+            <li ng-class="{active: panel.isSelected(3)}"><a href ng-click="panel.selectTab(3)">Про нас</a></li>
           </ul>
       </div>
     </div>
 
-    <div ng-init="tab = 1">
+    <div>
       <!-- Головна сторінка -->
-      <div class="main" ng-show="tab === 1">
-        <div class="container">
+      <div class="main" ng-show="panel.tab == 1">
+        <div class="container" ng-controller="MainController as main">
           <h3 id="promo">Читай книги рідною мовою!</h3>
           <div>
             <h2>Щоб додати книгу до кошику - клацніть на +.<a href="#" class="cart-button">
               <span class="cart-button-quantity"></span>
               <span class="cart-button-label"></span>
-            </a></h2>       
+            </a></h2>
           </div>
-        
-          <!-- Виведення продуктів -->      
-          <div ng-repeat="product in products" class="col-md-3"> 
-              <div class="thumbnail"> 
-                  <img ng-src="{{ product.cover }}"> 
-                  <p class="title">{{ product.name }}</p> 
+
+          <!-- Виведення продуктів -->
+          <div ng-repeat="product in products" class="col-md-3">
+              <div class="thumbnail">
+                  <img ng-src="{{ product.cover }}">
+                  <p class="title">{{ product.name }}</p>
                   <p class="author">{{ product.author }}</p>
-                  <p class="price">{{ product.price + " &#8372;" }}</p> 
-                  <p class="date">{{ product.pubdate | date }}</p> 
+                  <p class="price">{{ product.price + " &#8372;" }}</p>
+                  <p class="date">{{ product.pubdate | date }}</p>
                   <div class="wrap">
                           <p class="add" ng-click="added($index)">+</p>
                   </div>
-              </div> 
+              </div>
           </div>
         </div>
       </div>
       <!-- Контакти -->
-      <div id="contacts" ng-show="tab === 2"> Є питання? Зв'яжіться з нами!<br> 
+      <div id="contacts" ng-show="panel.tab == 2"> Є питання? Зв'яжіться з нами!<br>
           Телефон: 093 695 0971<br>
-          E-mail: zoorned@gmail.com 
+          E-mail: zoorned@gmail.com
       </div>
       <!-- Про -->
-      <div id='about' ng-show="tab === 3">
-        <h2> Ми являємось молодою командою, яка любить читати книжки і поважає рідну солов'їну мову. Ми хочемо, щоб українська мова поширювалась все більше і більше, тому в нашому магазині ви побачите книги виключно рідною мовою!!!</h2>
+      <div id='about' ng-show="panel.tab == 3">
+        <h2> Ми являємось молодою командою, яка любить читати книжки
+          і поважає рідну солов'їну мову. Ми хочемо, щоб українська мова
+          поширювалась все більше і більше, тому в нашому магазині ви
+          побачите книги виключно рідною мовою!!!</h2>
       </div>
 
       <!-- "Дно" сторінки -->
