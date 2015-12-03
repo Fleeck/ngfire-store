@@ -122,7 +122,7 @@ html, body {
  color:#7F7F7F;
 
 }
-#contacts {
+.contacts {
     font-size: 24px;
     font-weight: 500;
     position: relative;
@@ -139,22 +139,20 @@ html, body {
 
 }
 
-#navy {
+.panel-header {
   padding-bottom:50px;
 }
 
-#navbar {
+.nav {
   position: relative;
   top:33px;
 }
 
-#promo {
+.promo-header {
    color: #F65A5B ;
- font-size: 40px;
- margin: 0 0 50px 0;
- padding: 10px 0;
-   line-height: 60px;
-   width: 50%;
+   font-size: 40px;
+   margin: 0 0 50px 0;
+   padding: 10px 0;
 }
 
 a:focus {
