@@ -21,7 +21,7 @@
     <script src="js/controllers/PanelController.js"></script>
   </head>
 
-  <body ng-app="myApp">
+  <body ng-app="myApp" ng-controller="PanelController as panel">
     <!-- Налаштування кошику -->
     <script>
       cartjs.initialize({
@@ -36,7 +36,7 @@
     </script>
 
     <!-- Заголовок -->
-    <div class="header" ng-controller="PanelController as panel">
+    <div class="header">
       <div id="navy" class="container">
         <h1>UkrBook</h1>
           <ul id="navbar" class="nav nav-tabs navbar-right">
@@ -47,10 +47,10 @@
       </div>
     </div>
 
-    <div>
+    <div ng-controller="MainController as main">
       <!-- Головна сторінка -->
       <div class="main" ng-show="panel.tab == 1">
-        <div class="container" ng-controller="MainController as main">
+        <div class="container">
           <h3 id="promo">Читай книги рідною мовою!</h3>
           <div>
             <h2>Щоб додати книгу до кошику - клацніть на +.<a href="#" class="cart-button">
