@@ -1,0 +1,23 @@
+<div class="container">
+  <h3 class="promo-header">Читай книги рідною мовою!</h3>
+  <div>
+    <h2>Щоб додати книгу до кошику - клацніть на +.<a href="#" class="cart-button">
+      <span class="cart-button-quantity"></span>
+      <span class="cart-button-label"></span>
+    </a></h2>
+  </div>
+
+  <!-- Виведення продуктів -->
+  <div ng-repeat="product in products" class="col-md-3">
+      <div class="thumbnail">
+          <img ng-src="{{ product.cover }}"/>
+          <p class="title">{{ product.name }}</p>
+          <p class="author">{{ product.author }}</p>
+          <p class="price">{{ product.price + " &#8372;" }}</p>
+          <p class="date">{{ product.pubdate | date }}</p>
+          <div class="wrap">
+                  <p class="add" ng-click="added($index)">+</p>
+          </div>
+      </div>
+  </div>
+</div>
