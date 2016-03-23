@@ -6,11 +6,6 @@
   <meta name="viewport" content="width=device-width">
   <title>Book Store</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-  <!-- Шрифт -->
-  <link rel="stylesheet" href="styles/foundation-icons.css" />
-
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-
   <link href='http://fonts.googleapis.com/css?family=Roboto:500,300,700,400' rel='stylesheet' type='text/css'>
   <link href="styles/main.css" rel="stylesheet" />
   <script src="http://salejs.com/v1/cart.js"></script>
@@ -33,12 +28,12 @@
   <div class="header" ng-controller='HomeCtrl as homeCtrl'>
     <div class="panel-header container">
       <h1>UkrBook</h1>
-        <ul class="nav nav-tabs navbar-right">
-          <li ng-class="{active: homeCtrl.isSelected(1)}"><a href ng-click="homeCtrl.selectTab(1, 'home')">Головна</a></li>
-          <li ng-class="{active: homeCtrl.isSelected(2)}"><a href ng-click="homeCtrl.selectTab(2, 'login')">Увійдіть</a></li>
-          <li ng-class="{active: homeCtrl.isSelected(3)}"><a href ng-click="homeCtrl.selectTab(3, 'register')">Реєстрація</a></li>
-          <li ng-class="{active: homeCtrl.isSelected(4)}"><a href ng-click="homeCtrl.selectTab(4, 'about')">Про нас</a></li>
-        </ul>
+      <ul class="nav nav-tabs navbar-right">
+        <li ng-class="{active: homeCtrl.isSelected(1)}"><a href ng-click="homeCtrl.selectTab(1, 'home')">Головна</a></li>
+        <li ng-class="{active: homeCtrl.isSelected(2)}"><a href ng-click="homeCtrl.selectTab(2, 'login')">Увійдіть</a></li>
+        <li ng-class="{active: homeCtrl.isSelected(3)}"><a href ng-click="homeCtrl.selectTab(3, 'register')">Реєстрація</a></li>
+        <li ng-class="{active: homeCtrl.isSelected(4)}"><a href ng-click="homeCtrl.selectTab(4, 'about')">Про нас</a></li>
+      </ul>
     </div>
   </div>
 
