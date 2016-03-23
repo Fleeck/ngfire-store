@@ -1,0 +1,67 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Book Store</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <!-- Шрифт -->
+  <link rel="stylesheet" href="styles/foundation-icons.css" />
+
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto:500,300,700,400' rel='stylesheet' type='text/css'>
+  <link href="styles/main.css" rel="stylesheet" />
+  <script src="http://salejs.com/v1/cart.js"></script>
+</head>
+
+<body ng-app="bookStore">
+  <!-- Налаштування кошику -->
+  <script>
+    cartjs.initialize({
+      emailOrdersTo: 'zoorned@gmail.com',
+      language: 'ukrainian',
+      currency: 'грн.',
+      requireName: true,
+      requirePhone: true,
+      requireEmail: true,
+      requireAddress: true,
+    })
+  </script>
+
+  <div class="header" ng-controller='HomeCtrl as homeCtrl'>
+    <div class="panel-header container">
+      <h1>UkrBook</h1>
+        <ul class="nav nav-tabs navbar-right">
+          <li ng-class="{active: homeCtrl.isSelected(1)}"><a href ng-click="homeCtrl.selectTab(1, 'home')">Головна</a></li>
+          <li ng-class="{active: homeCtrl.isSelected(2)}"><a href ng-click="homeCtrl.selectTab(2, 'login')">Увійдіть</a></li>
+          <li ng-class="{active: homeCtrl.isSelected(3)}"><a href ng-click="homeCtrl.selectTab(3, 'register')">Реєстрація</a></li>
+          <li ng-class="{active: homeCtrl.isSelected(4)}"><a href ng-click="homeCtrl.selectTab(4, 'about')">Про нас</a></li>
+        </ul>
+    </div>
+  </div>
+
+  <ui-view></ui-view>
+
+  <!-- build:js(.) scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/firebase/firebase.js"></script>
+  <script src="bower_components/angularfire/dist/angularfire.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/angular-md5/angular-md5.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="app.js"></script>
+  <script src="auth/auth.controller.js"></script>
+  <script src="auth/auth.service.js"></script>
+  <script src="home/home.controller.js"></script>
+  <!-- endbuild -->
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+<div class="page-wrapper">
+
+  <div ng-show="authCtrl.error">
+    <span>{{ authCtrl.error.message }}</span>
+  </div>
+
+  <form ng-submit="authCtrl.login()">
+    <div class="input-group">
+      <input type="email" ng-model="authCtrl.user.email" class="form-control" placeholder="Email">
+    </div>
+    <div class="input-group">
+      <input type="password" ng-model="authCtrl.user.password" class="form-control" placeholder="Password">
+    </div>
+    <input type="submit" class="btn btn-default" value="Log In">
+  </form>
+
+</div>

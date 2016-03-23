@@ -1,4 +1,10 @@
-var app = angular.module("myApp", []);
+var app = angular.module("bookStore", [])
+.controller('MainCtrl', [
+  '$scope',
+  function($scope){
+
+  }
+]);
 
 app.directive('aboutUs', function() {
   return {
