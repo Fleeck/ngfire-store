@@ -33,6 +33,8 @@
         <li ng-class="{active: homeCtrl.isSelected(2)}"><a href ng-click="homeCtrl.selectTab(2, 'login')">Увійдіть</a></li>
         <li ng-class="{active: homeCtrl.isSelected(3)}"><a href ng-click="homeCtrl.selectTab(3, 'register')">Реєстрація</a></li>
         <li ng-class="{active: homeCtrl.isSelected(4)}"><a href ng-click="homeCtrl.selectTab(4, 'about')">Про нас</a></li>
+        <li ng-class="{active: homeCtrl.isSelected(5)}"><a href ng-click="homeCtrl.selectTab(5, 'profile')">Профіль</a></li>
+        <li ng-class="{active: homeCtrl.isSelected(6)}"><a href ng-click="homeCtrl.selectTab(6, 'home', homeCtrl.logout())">Вийти</a></li>
       </ul>
     </div>
   </div>
@@ -56,6 +58,7 @@
   <script src="auth/auth.controller.js"></script>
   <script src="auth/auth.service.js"></script>
   <script src="home/home.controller.js"></script>
+  <script src="users/profile.controller.js"></script>
   <!-- endbuild -->
 </body>
 

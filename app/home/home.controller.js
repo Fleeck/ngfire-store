@@ -1,11 +1,12 @@
 angular.module('bookStore')
-  .controller('HomeCtrl', function($state) {
+  .controller('HomeCtrl', function($state, Auth) {
     var homeCtrl = this;
     homeCtrl.tab = 1;
+    homeCtrl.logout = Auth.logout;
 
-    homeCtrl.selectTab = function(setTab, state) {
+    homeCtrl.selectTab = function(setTab, state, callback) {
       homeCtrl.tab = setTab;
-      $state.go(state).then(function() {}),
+      $state.go(state).then(callback),
         function(error) {
           console.log(error);
         };
@@ -51,8 +52,4 @@ angular.module('bookStore')
       return homeCtrl.tab === checkTab;
     };
 
-    homeCtrl.goToState = function(state) {
-      $state.go(state);
-      console.log('I work');
-    };
   });
