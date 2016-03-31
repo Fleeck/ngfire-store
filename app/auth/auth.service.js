@@ -3,24 +3,30 @@ angular.module('bookStore')
     var ref = new Firebase(FirebaseUrl);
     var Auth = $firebaseAuth(ref);
 
+    Auth.currentUser = function() {
+      if (Auth.$getAuth()) {
+        return Auth.$getAuth().password.email;
+      } else return;
+    }
+
     Auth.isLoggedIn = function() {
       var authData = ref.getAuth();
-
       if (authData) {
-        console.log("User " + authData.uid + " is logged in with " + authData.provider);
+        return true;
       } else {
-        console.log("User is logged out");
+        return false;
       }
     };
 
-    Auth.logout = function(){
-      ref.unauth().then(function(){
+    ref.onAuth(Auth.isLoggedIn);
+
+    Auth.logout = function() {
+      ref.unauth().then(function() {
         console.log('Logged out');
         $state.go('home');
-      }, function(error){
+      }, function(error) {
         authCtrl.error = error;
       });
     };
-
     return Auth;
   });

@@ -3,6 +3,8 @@ angular.module('bookStore')
     var homeCtrl = this;
     homeCtrl.tab = 1;
     homeCtrl.logout = Auth.logout;
+    homeCtrl.isLoggedIn = Auth.isLoggedIn;
+    homeCtrl.currentUser = Auth.currentUser;
 
     homeCtrl.selectTab = function(setTab, state, callback) {
       homeCtrl.tab = setTab;
@@ -51,5 +53,4 @@ angular.module('bookStore')
     homeCtrl.isSelected = function(checkTab) {
       return homeCtrl.tab === checkTab;
     };
-
   });
