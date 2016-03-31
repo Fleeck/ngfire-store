@@ -8,10 +8,9 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
-
+  var serveStatic = require('serve-static');
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
-  var serveStatic = require('serve-static');
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
@@ -68,7 +67,7 @@ module.exports = function (grunt) {
       options: {
         port: 4000,
         // Change this to '0.0.0.0' to access the server from outside.
-        hostname: '0.0.0.0',
+        hostname: 'localhost',
         livereload: 4002
       },
       livereload: {
