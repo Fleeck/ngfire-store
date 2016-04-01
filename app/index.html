@@ -31,9 +31,9 @@
       <ul class="nav nav-tabs navbar-right">
         <span ></span>
         <li ng-class="{active: homeCtrl.isSelected(1)}"><a href ng-click="homeCtrl.selectTab(1, 'home')">Головна</a></li>
-        <li ng-hide="homeCtrl.isLoggedIn()" ng-class="{active: homeCtrl.isSelected(2)}"><a href ng-click="homeCtrl.selectTab(2, 'login')">Увійдіть</a></li>
-        <li ng-hide="homeCtrl.isLoggedIn()" ng-class="{active: homeCtrl.isSelected(3)}"><a href ng-click="homeCtrl.selectTab(3, 'register')">Реєстрація</a></li>
         <li ng-class="{active: homeCtrl.isSelected(4)}"><a href ng-click="homeCtrl.selectTab(4, 'about')">Про нас</a></li>
+        <li ng-hide="homeCtrl.isLoggedIn()" ng-class="{active: homeCtrl.isSelected(2)}"><a href ng-click="homeCtrl.selectTab(2, 'login')">Увійти</a></li>
+        <li ng-hide="homeCtrl.isLoggedIn()" ng-class="{active: homeCtrl.isSelected(3)}"><a href ng-click="homeCtrl.selectTab(3, 'register')">Зареєструватись</a></li>
         <li ng-show="homeCtrl.isLoggedIn()" ng-class="{active: homeCtrl.isSelected(5)}"><a href ng-click="homeCtrl.selectTab(5, 'profile')">{{homeCtrl.currentUser()}}</a></li>
         <li ng-show="homeCtrl.isLoggedIn()" ng-class="{active: homeCtrl.isSelected(6)}"><a href ng-click="homeCtrl.selectTab(6, 'home', homeCtrl.logout())">Вийти</a></li>
       </ul>
