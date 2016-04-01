@@ -1,7 +1,7 @@
 angular.module('bookStore')
   .controller('AuthCtrl', function(Auth, $state) {
     var authCtrl = this;
-
+    
     authCtrl.user = {
       email: '',
       password: ''
@@ -15,7 +15,7 @@ angular.module('bookStore')
         authCtrl.error = error;
       });
     };
-    
+
     authCtrl.register = function() {
       Auth.$createUser(authCtrl.user).then(function(user) {
         authCtrl.login();

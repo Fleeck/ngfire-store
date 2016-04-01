@@ -3,11 +3,7 @@ angular.module('bookStore')
     var ref = new Firebase(FirebaseUrl);
     var Auth = $firebaseAuth(ref);
 
-    Auth.currentUser = function() {
-      if (Auth.$getAuth()) {
-        return Auth.$getAuth().password.email;
-      } else return;
-    }
+    Auth.currentUser = Auth.$getAuth();
 
     Auth.isLoggedIn = function() {
       var authData = ref.getAuth();
