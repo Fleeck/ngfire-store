@@ -1,10 +1,11 @@
 angular.module('bookStore')
-  .controller('HomeCtrl', function($state, Auth) {
+  .controller('HomeCtrl', function($state, Auth, Users) {
     var homeCtrl = this;
     homeCtrl.tab = 1;
     homeCtrl.logout = Auth.logout;
     homeCtrl.isLoggedIn = Auth.isLoggedIn;
     homeCtrl.currentUser = Auth.currentUser;
+    homeCtrl.getUserName = Users.getUserName;
 
     homeCtrl.selectTab = function(setTab, state, callback) {
       homeCtrl.tab = setTab;

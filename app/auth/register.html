@@ -6,6 +6,9 @@
 
   <form ng-submit="authCtrl.register()">
     <div class="input-group">
+      <input type="text" ng-model="authCtrl.user.name" class="form-control" placeholder="Ім'я">
+    </div>
+    <div class="input-group">
       <input type="email" ng-model="authCtrl.user.email" class="form-control" placeholder="Пошта">
     </div>
     <div class="input-group">

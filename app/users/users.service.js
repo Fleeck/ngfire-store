@@ -1,18 +1,20 @@
 angular.module('bookStore')
-  .factory('Users', function($firebaseArray, $firebaseObject, FirebaseUrl){
+  .factory('Users', function($firebaseArray, $firebaseObject, FirebaseUrl) {
 
     var usersRef = new Firebase(FirebaseUrl + '/users');
     var users = $firebaseArray(usersRef);
 
     var Users = {
-      getProfile: function(uid){
+      saveUser: function(user) {
+        return usersRef.child(user.uid).set(user);
+      },
+      getUser: function(uid) {
         return $firebaseObject(usersRef.child(uid));
       },
-      getDisplayName: function(uid){
-        return users.$getRecord(uid).displayName;
-      },
-      getGravatar: function(uid){
-        return '//www.gravatar.com/avatar/' + users.$getRecord(uid).emailHash;
+      getUserName: function(uid) {
+        if (users.$getRecord(uid)) {
+          return users.$getRecord(uid).name;
+        }
       },
       all: users
     };

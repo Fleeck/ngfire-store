@@ -1,8 +1,9 @@
 angular.module('bookStore')
-  .controller('AuthCtrl', function(Auth, $state) {
+  .controller('AuthCtrl', function(Users, Auth, $state) {
     var authCtrl = this;
-    
+
     authCtrl.user = {
+      name: '',
       email: '',
       password: ''
     };
@@ -18,8 +19,15 @@ angular.module('bookStore')
 
     authCtrl.register = function() {
       Auth.$createUser(authCtrl.user).then(function(user) {
-        authCtrl.login();
-        console.log('Registered');
+        Auth.$authWithPassword(authCtrl.user).then(function(authData) {
+          Users.saveUser({
+            uid: authData.uid,
+            name: authCtrl.user.name,
+            mail: authData.password.email
+          });
+          console.log('Registered');
+          $state.go('home');
+        });
       }, function(error) {
         authCtrl.error = error;
       });
