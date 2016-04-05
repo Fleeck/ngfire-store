@@ -159,3 +159,7 @@ html, body {
 a:focus {
   outline:none;
 }
+
+table, tr, th {
+  text-align: center;
+}

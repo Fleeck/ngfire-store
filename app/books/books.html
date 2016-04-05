@@ -1,0 +1,24 @@
+<div class="container">
+  <table class='table table-responsive table-hover table-bordered'>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Price</th>
+        <th>PubDate</th>
+        <th>CoverUrl</th>
+        <th>Pages</th>
+      </tr>
+    </thead>
+    <tr ng-repeat="book in bookCtrl.books">
+      <td>{{ book.name }}</td>
+      <td>{{ book.author }}</td>
+      <td>{{ book.price }}</td>
+      <td>{{ book.pubdate | date }}</td>
+      <td>{{ book.coverUrl }}</td>
+      <td>{{ book.pagesCount}}</td>
+    </tr>
+  </table>
+  <button class="btn btn-default" ng-click="bookCtrl.createBook()">Додати книгу</button>
+
+</div>
