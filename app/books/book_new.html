@@ -1,29 +1,36 @@
-<div class="page-wrapper">
-
+<div class="container">
   <div ng-show="bookCtrl.error">
     <span>{{ bookCtrl.error.message }}</span>
   </div>
 
-  <form ng-submit="bookCtrl.addBook(bookCtrl.book)">
+  <form class="container col-lg-3" ng-submit="bookCtrl.addBook(bookCtrl.book)">
     <div class="input-group">
-      <input type="text" ng-model="bookCtrl.book.name" class="form-control" placeholder="Назва">
+      <label class="col-sm-2 control-label">Назва:</label>
+      <input type="text" ng-model="bookCtrl.book.name" class="form-control">
     </div>
     <div class="input-group">
-      <input type="text" ng-model="bookCtrl.book.author" class="form-control" placeholder="Автор">
+      <label class="col-sm-2 control-label">Автор:</label>
+      <input type="text" ng-model="bookCtrl.book.author" class="form-control">
     </div>
     <div class="input-group">
-      <input type="number" ng-model="bookCtrl.book.price" class="form-control" placeholder="Ціна">
+      <label class="col-sm-2 control-label">Ціна:</label>
+      <input type="number" ng-model="bookCtrl.book.price" class="form-control">
     </div>
     <div class="input-group">
-      <input type="date" ng-model="bookCtrl.book.pubdate" class="form-control" placeholder="Дата публікації">
+      <label class="col-sm-2 control-label">Дата публікації:</label>
+      <input type="date" ng-model="bookCtrl.book.pubdate" class="form-control">
     </div>
     <div class="input-group">
-      <input type="url" ng-model="bookCtrl.book.coverUrl" class="form-control" placeholder="Обкладинка">
+      <label class="col-sm-2 control-label">Обкладинка:</label>
+      <input type="url" ng-model="bookCtrl.book.coverUrl" class="form-control">
     </div>
     <div class="input-group">
-      <input type="number" ng-model="bookCtrl.book.pagesCount" class="form-control" placeholder="Кількість сторінок">
+      <label class="col-sm-2 control-label">Кількість сторінок:</label>
+      <input type="number" ng-model="bookCtrl.book.pagesCount" class="form-control">
     </div>
-    <input type="submit" class="btn btn-default" value="Додати книгу">
+    <input type="submit" class="btn btn-primary" value="Додати книгу">
   </form>
+
+  <button ng-click="bookCtrl.goBack()" class="btn btn-alert col-lg-1">Назад</button>
 
 </div>

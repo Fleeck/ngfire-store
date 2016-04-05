@@ -9,7 +9,11 @@ angular.module('bookStore')
     bookCtrl.createBook = function(){
       return $state.go('books_new');
     }
-    
+
+    bookCtrl.goBack = function(){
+      return $state.go('books');
+    }
+
     bookCtrl.book = {
       name: '',
       author: '',
