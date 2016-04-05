@@ -1,0 +1,29 @@
+<div class="page-wrapper">
+
+  <div ng-show="bookCtrl.error">
+    <span>{{ bookCtrl.error.message }}</span>
+  </div>
+
+  <form ng-submit="bookCtrl.addBook(bookCtrl.book)">
+    <div class="input-group">
+      <input type="text" ng-model="bookCtrl.book.name" class="form-control" placeholder="Назва">
+    </div>
+    <div class="input-group">
+      <input type="text" ng-model="bookCtrl.book.author" class="form-control" placeholder="Автор">
+    </div>
+    <div class="input-group">
+      <input type="number" ng-model="bookCtrl.book.price" class="form-control" placeholder="Ціна">
+    </div>
+    <div class="input-group">
+      <input type="date" ng-model="bookCtrl.book.pubdate" class="form-control" placeholder="Дата публікації">
+    </div>
+    <div class="input-group">
+      <input type="url" ng-model="bookCtrl.book.coverUrl" class="form-control" placeholder="Обкладинка">
+    </div>
+    <div class="input-group">
+      <input type="number" ng-model="bookCtrl.book.pagesCount" class="form-control" placeholder="Кількість сторінок">
+    </div>
+    <input type="submit" class="btn btn-default" value="Додати книгу">
+  </form>
+
+</div>

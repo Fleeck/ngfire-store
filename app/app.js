@@ -39,6 +39,11 @@ angular
           }
         }
       })
+      .state('admin', {
+        url: '/admin',
+        templateUrl: 'books/admin.html',
+        controller: 'bookCtrl as bookCtrl'
+      })
 
     $urlRouterProvider.otherwise('/');
   })
