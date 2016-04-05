@@ -7,6 +7,12 @@ angular.module('bookStore')
     homeCtrl.currentUser = Auth.currentUser;
     homeCtrl.getUserName = Users.getUserName;
 
+    Auth.$onAuth(function(authData) {
+      if (authData) {
+        homeCtrl.currentUser = authData;
+      }
+    });
+
     homeCtrl.selectTab = function(setTab, state, callback) {
       homeCtrl.tab = setTab;
       $state.go(state).then(callback),

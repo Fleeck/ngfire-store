@@ -14,8 +14,6 @@ angular.module('bookStore')
       }
     };
 
-    ref.onAuth(Auth.isLoggedIn);
-
     Auth.logout = function() {
       ref.unauth().then(function() {
         console.log('Logged out');

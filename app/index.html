@@ -43,7 +43,7 @@
           <a href ng-click="homeCtrl.selectTab(3, 'register')">Зареєструватись</a>
         </li>
         <li ng-show="homeCtrl.isLoggedIn()" ng-class="{active: homeCtrl.isSelected(5)}">
-          <a href ng-click="homeCtrl.selectTab(5, 'profile')">{{ homeCtrl.getUserName(homeCtrl.currentUser.uid) }}</a>
+          <a href ng-click="homeCtrl.selectTab(5, 'profile')">{{ homeCtrl.currentUser.password.email }}</a>
         </li>
         <li ng-show="homeCtrl.isLoggedIn()" ng-class="{active: homeCtrl.isSelected(6)}">
           <a href ng-click="homeCtrl.selectTab(6, 'home', homeCtrl.logout())">Вийти</a>
