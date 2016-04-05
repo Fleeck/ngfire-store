@@ -1,8 +1,15 @@
 angular.module('bookStore')
-  .controller('bookCtrl', function(Books) {
+  .controller('BookCtrl', function(Books, $state) {
     var bookCtrl = this;
 
     bookCtrl.addBook = Books.addBook;
+    bookCtrl.getAllBooks = Books.getAllBooks;
+    bookCtrl.books = Books.all;
+
+    bookCtrl.createBook = function(){
+      return $state.go('books_new');
+    }
+    
     bookCtrl.book = {
       name: '',
       author: '',
