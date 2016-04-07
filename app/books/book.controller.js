@@ -8,6 +8,7 @@ angular.module('bookStore')
     bookCtrl.editBook = Books.editBook;
     bookCtrl.submitBook = Books.submitBook;
     bookCtrl.currentBook = $state.params.data;
+    bookCtrl.deleteBook = Books.deleteBook;
 
     bookCtrl.createBook = function(){
       return $state.go('books_new');

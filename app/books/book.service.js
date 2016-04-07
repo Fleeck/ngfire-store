@@ -15,7 +15,18 @@ angular.module('bookStore')
 
       editBook: function(book) {
         if (book) {
-          $state.go('books_edit',{bookId: book.$id, data: book});
+          $state.go('books_edit', {
+            bookId: book.$id,
+            data: book
+          });
+        }
+      },
+
+      deleteBook: function(book) {
+        if (book) {
+          return books.$remove(book).then(function(data) {
+            $state.go('books');
+          });
         }
       },
 

@@ -29,6 +29,7 @@
       <input type="number" ng-model="bookCtrl.currentBook.pagesCount" class="form-control">
     </div>
     <input type="submit" class="btn btn-primary" value="Редагувати">
+    <button class="btn btn-danger" ng-click="bookCtrl.deleteBook(bookCtrl.currentBook)">Видалити книгу</button>
   </form>
 
   <button ng-click="bookCtrl.goBack()" class="btn btn-alert col-lg-1">Назад</button>
