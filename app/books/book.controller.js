@@ -5,6 +5,9 @@ angular.module('bookStore')
     bookCtrl.addBook = Books.addBook;
     bookCtrl.getAllBooks = Books.getAllBooks;
     bookCtrl.books = Books.all;
+    bookCtrl.editBook = Books.editBook;
+    bookCtrl.submitBook = Books.submitBook;
+    bookCtrl.currentBook = $state.params.data;
 
     bookCtrl.createBook = function(){
       return $state.go('books_new');

@@ -10,7 +10,7 @@
         <th>Pages</th>
       </tr>
     </thead>
-    <tr ng-repeat="book in bookCtrl.books">
+    <tr ng-click="bookCtrl.editBook(book)" ng-repeat="book in bookCtrl.books">
       <td>{{ book.name }}</td>
       <td>{{ book.author }}</td>
       <td>{{ book.price }}</td>

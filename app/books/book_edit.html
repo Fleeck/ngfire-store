@@ -1,0 +1,36 @@
+<div class="container">
+  <div ng-show="bookCtrl.error">
+    <span>{{ bookCtrl.error.message }}</span>
+  </div>
+
+  <form class="container col-lg-3" ng-submit="bookCtrl.submitBook(bookCtrl.currentBook)">
+    <div class="input-group">
+      <label class="col-sm-2 control-label">Назва:</label>
+      <input type="text" ng-model="bookCtrl.currentBook.name" class="form-control">
+    </div>
+    <div class="input-group">
+      <label class="col-sm-2 control-label">Автор:</label>
+      <input type="text" ng-model="bookCtrl.currentBook.author" class="form-control">
+    </div>
+    <div class="input-group">
+      <label class="col-sm-2 control-label">Ціна:</label>
+      <input type="number" ng-model="bookCtrl.currentBook.price" class="form-control">
+    </div>
+    <div class="input-group">
+      <label class="col-sm-2 control-label">Дата публікації:</label>
+      <input type="date" ng-model="bookCtrl.currentBook.pubdate" class="form-control">
+    </div>
+    <div class="input-group">
+      <label class="col-sm-2 control-label">Обкладинка:</label>
+      <input type="url" ng-model="bookCtrl.currentBook.coverUrl" class="form-control">
+    </div>
+    <div class="input-group">
+      <label class="col-sm-2 control-label">Кількість сторінок:</label>
+      <input type="number" ng-model="bookCtrl.currentBook.pagesCount" class="form-control">
+    </div>
+    <input type="submit" class="btn btn-primary" value="Редагувати">
+  </form>
+
+  <button ng-click="bookCtrl.goBack()" class="btn btn-alert col-lg-1">Назад</button>
+
+</div>

@@ -44,6 +44,14 @@ angular
         templateUrl: 'books/book_new.html',
         controller: 'BookCtrl as bookCtrl'
       })
+      .state('books_edit', {
+        url: '/books/:bookId' ,
+        templateUrl: 'books/book_edit.html',
+        controller: 'BookCtrl as bookCtrl',
+        params: {
+          data: null
+        }
+      })
       .state('books', {
         url: '/books',
         templateUrl: 'books/books.html',
