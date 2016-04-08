@@ -14,33 +14,7 @@
 
 <body ng-app="bookStore">
 
-  <div class="header" ng-controller='HomeCtrl as homeCtrl'>
-    <div class="panel-header container">
-      <h1>UkrBook</h1>
-      <ul class="nav nav-tabs navbar-right">
-        <span></span>
-        <li ng-class="{active: homeCtrl.isSelected(1)}">
-          <a href ng-click="homeCtrl.selectTab(1, 'home')">Головна</a>
-        </li>
-        <li ng-class="{active: homeCtrl.isSelected(4)}">
-          <a href ng-click="homeCtrl.selectTab(4, 'about')">Про нас</a>
-        </li>
-        <li ng-hide="homeCtrl.isLoggedIn()" ng-class="{active: homeCtrl.isSelected(2)}">
-          <a href ng-click="homeCtrl.selectTab(2, 'login')">Увійти</a>
-        </li>
-        <li ng-hide="homeCtrl.isLoggedIn()" ng-class="{active: homeCtrl.isSelected(3)}">
-          <a href ng-click="homeCtrl.selectTab(3, 'register')">Зареєструватись</a>
-        </li>
-        <li ng-show="homeCtrl.isLoggedIn()" ng-class="{active: homeCtrl.isSelected(5)}">
-          <a href ng-click="homeCtrl.selectTab(5, 'profile')">{{ homeCtrl.currentUser.password.email }}</a>
-        </li>
-        <li ng-show="homeCtrl.isLoggedIn()" ng-class="{active: homeCtrl.isSelected(6)}">
-          <a href ng-click="homeCtrl.selectTab(6, 'home', homeCtrl.logout())">Вийти</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-
+  <navigation></navigation>
   <ui-view></ui-view>
 
   <!-- build:js(.) scripts/vendor.js -->
@@ -63,23 +37,14 @@
   <script src="auth/auth.service.js"></script>
   <script src="books/book.service.js"></script>
   <script src="auth/auth.controller.js"></script>
-  <script src="home/home.controller.js"></script>
   <script src="users/profile.controller.js"></script>
   <script src="books/book.controller.js"></script>
+  <script src="navigation/nav.controller.js"></script>
+  <script src="navigation/nav.directive.js"></script>
   <!-- endbuild -->
 
   <!-- Налаштування кошику -->
   <script>
-    cartjs.initialize({
-      emailOrdersTo: 'zoorned@gmail.com',
-      language: 'ukrainian',
-      currency: 'грн.',
-      requireName: true,
-      requirePhone: true,
-      requireEmail: true,
-      requireAddress: true,
-    });
-
     $.fn.datepicker.defaults.format = "dd/mm/yyyy";
     $.fn.datepicker.defaults.autoclose = true;
   </script>
