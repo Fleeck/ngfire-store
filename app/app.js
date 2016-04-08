@@ -4,13 +4,14 @@ angular
   .module('bookStore', [
     'firebase',
     'angular-md5',
-    'ui.router'
+    'ui.router',
+    'ngCart'
   ])
   .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
         url: '/',
-        controller: 'HomeCtrl as homeCtrl',
+        controller: 'BookCtrl as bookCtrl',
         templateUrl: 'home/home.html',
       })
       .state('login', {

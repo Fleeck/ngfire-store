@@ -2,13 +2,14 @@
   <h3 class="promo-header">Читай книги рідною мовою!</h3>
   <div>
     <h2>Щоб додати книгу до кошику - клацніть на +.<a href="#" class="cart-button">
+      <ngcart-summary></ngcart-summary>
       <span class="cart-button-quantity"></span>
       <span class="cart-button-label"></span>
     </a></h2>
   </div>
 
   <!-- Виведення продуктів -->
-  <div ng-repeat="book in homeCtrl.books" class="col-md-3">
+  <div ng-repeat="book in bookCtrl.books" class="col-md-3">
     <div class="thumbnail">
       <img ng-src="{{ book.coverUrl }}" />
       <p class="title">{{ book.name }}</p>
@@ -16,7 +17,7 @@
       <p class="price">{{ book.price + " &#8372;" }}</p>
       <p class="date">{{ book.pubdate | date }}</p>
       <div class="wrap">
-        <p class="add" ng-click="">+</p>
+        <p class="add" ng-click="ngCart.addItemToCart(book.$id, book.name, book.price)">+</p>
       </div>
     </div>
   </div>
