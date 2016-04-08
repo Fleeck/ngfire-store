@@ -8,22 +8,22 @@
   </div>
 
   <!-- Виведення продуктів -->
-  <div ng-repeat="product in homeCtrl.products" class="col-md-3">
-      <div class="thumbnail">
-          <img ng-src="{{ product.cover }}"/>
-          <p class="title">{{ product.name }}</p>
-          <p class="author">{{ product.author }}</p>
-          <p class="price">{{ product.price + " &#8372;" }}</p>
-          <p class="date">{{ product.pubdate | date }}</p>
-          <div class="wrap">
-                  <p class="add" ng-click="homeCtrl.added($index)">+</p>
-          </div>
+  <div ng-repeat="book in homeCtrl.books" class="col-md-3">
+    <div class="thumbnail">
+      <img ng-src="{{ book.coverUrl }}" />
+      <p class="title">{{ book.name }}</p>
+      <p class="author">{{ book.author }}</p>
+      <p class="price">{{ book.price + " &#8372;" }}</p>
+      <p class="date">{{ book.pubdate | date }}</p>
+      <div class="wrap">
+        <p class="add" ng-click="">+</p>
       </div>
+    </div>
   </div>
 </div>
 
-  <!-- Дно сторінки -->
-  <!-- <div class="footer">
+<!-- Дно сторінки -->
+<!-- <div class="footer">
     <div class="container">
       <h1>Дякуємо за покупку!</h1>
     </div>
