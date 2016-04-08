@@ -5,6 +5,7 @@ angular.module('bookStore')
     var books = $firebaseArray(booksRef);
 
     var Books = {
+
       addBook: function(book) {
         if (book) {
           return books.$add(book).then(function(data) {
@@ -37,6 +38,7 @@ angular.module('bookStore')
           });
         }
       },
+
       all: books
     }
 
