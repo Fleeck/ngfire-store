@@ -4,8 +4,7 @@ angular
   .module('bookStore', [
     'firebase',
     'angular-md5',
-    'ui.router',
-    'ngCart'
+    'ui.router'
   ])
   .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
@@ -57,6 +56,11 @@ angular
         url: '/books',
         templateUrl: 'books/books.html',
         controller: 'BookCtrl as bookCtrl'
+      })
+      .state('cart', {
+        url: '/:userId/cart',
+        templateUrl: 'cart/cart.html',
+        controller: 'CartCtrl as cartCtrl'
       })
 
     $urlRouterProvider.otherwise('/');
