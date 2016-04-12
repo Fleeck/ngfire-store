@@ -16,9 +16,9 @@
       <p class="price">{{ book.price + " &#8372;" }}</p>
       <p class="date">{{ book.pubdate | date }}</p>
       <div class="wrap">
-        <p class="add" ng-click="">+</p>
-        <p class="add" ng-click="">-</p>
-        <p class="add" ng-click="">View</p>
+        <p class="add" ng-click="bookCtrl.Cart.addItem(book)">+</p>
+        <p class="add" ng-click="bookCtrl.Cart.removeItem(book)">-</p>
+        <p class="add" ng-click="bookCtrl.Cart.viewItems()">View</p>
       </div>
     </div>
   </div>
