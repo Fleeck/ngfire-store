@@ -1,10 +1,14 @@
 angular.module('bookStore')
   .factory('Cart', function(FirebaseUrl, $firebaseArray, $firebaseObject, $state, Auth) {
 
-    var cartsRef = new Firebase(FirebaseUrl + '/carts'),
-      user = Auth.$getAuth(),
-      cartRef = new Firebase(cartsRef + '/' + user.uid), // cart.$id = user.$id
+    var cartsRef = new Firebase(FirebaseUrl + '/carts');
+    var userId, cartRef, cartItems;
+
+    Auth.$onAuth(function(authData) {
+      userId = authData && authData.uid;
+      cartRef = new Firebase(cartsRef + '/' + userId);
       cartItems = $firebaseArray(cartRef);
+    });
 
     var Cart = {
       items: cartItems,
@@ -17,7 +21,7 @@ angular.module('bookStore')
           console.log('Quantity of ' + itemInCart.name + ' now = ' + itemInCart.quantity);
           return cartItems.$save(itemInCart);
         } else {
-          console.log('Adding item ' + item.name);
+          console.log('Adding item ' + item.name + '  to:  ' + cartRef);
           return cartRef.child(item.$id).set({
             author: item.author,
             coverUrl: item.coverUrl,
@@ -32,7 +36,7 @@ angular.module('bookStore')
 
       removeItem: function(item) {
         var itemInCart = cartItems.$getRecord(item.$id);
-        if (itemInCart){
+        if (itemInCart) {
           if (itemInCart.quantity === 1) {
             console.log('Removing ' + itemInCart.name);
             return cartItems.$remove(itemInCart);
