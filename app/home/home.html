@@ -17,8 +17,7 @@
       <p class="date">{{ book.pubdate | date }}</p>
       <div class="wrap">
         <p class="add" ng-click="bookCtrl.Cart.addItem(book)">+</p>
-        <p class="add" ng-click="bookCtrl.Cart.removeItem(book)">-</p>
-        <p class="add" ng-click="bookCtrl.Cart.viewItems()">View</p>
+        <p class="add" ng-class="{'button-visible': !bookCtrl.Cart.getItem(book.$id)}" ng-click="bookCtrl.Cart.removeItem(book)">-</p>
       </div>
     </div>
   </div>

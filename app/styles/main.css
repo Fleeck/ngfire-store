@@ -145,3 +145,7 @@ a:focus {
 table, tr, th {
   text-align: center;
 }
+
+.button-visible {
+  visibility:hidden;
+}
