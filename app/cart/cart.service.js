@@ -49,9 +49,12 @@ angular.module('bookStore')
       },
 
       getItem: function(id) {
-        return cartItems.$getRecord(id).then(function() {
-          console.log(cartItems.$getRecord(id));
-        });
+        if (id) {
+          return cartItems.$getRecord(id);
+        } else {
+          return false;
+        }
+
       },
 
       viewItems: function() {
