@@ -3,7 +3,6 @@
 angular
   .module('bookStore', [
     'firebase',
-    'angular-md5',
     'ui.router'
   ])
   .config(function($stateProvider, $urlRouterProvider) {
