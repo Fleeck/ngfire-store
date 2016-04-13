@@ -5,17 +5,14 @@ angular.module('bookStore')
 
     Auth.currentUser = Auth.$getAuth();
     Auth.$onAuth(function(authData) {
-      if (authData && authData.provider == 'anonymous') {
-
+      if (!authData) {
+        Auth.$authAnonymously().then(function(authData) {
+          console.log("Logged in as:", authData.uid);
+        }).catch(function(error) {
+          console.error("Authentication failed:", error);
+        });
       }
     });
-
-    Auth.$authAnonymously().then(function(authData) {
-      console.log("Logged in as:", authData.uid);
-    }).catch(function(error) {
-      console.error("Authentication failed:", error);
-    });
-
 
     Auth.isLoggedIn = function() {
       var authData = ref.getAuth();
