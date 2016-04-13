@@ -11,8 +11,7 @@ angular.module('bookStore')
     });
 
     var Cart = {
-      items: cartItems,
-      cartRef: cartRef,
+      cartItems: cartItems,
 
       addItem: function(item) {
         var itemInCart = cartItems.$getRecord(item.$id);
@@ -57,8 +56,8 @@ angular.module('bookStore')
 
       },
 
-      viewItems: function() {
-        console.log(cartItems);
+      getItemsLength: function() {
+        return cartItems && cartItems.length;
       }
     };
 
