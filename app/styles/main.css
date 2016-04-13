@@ -14,12 +14,18 @@ html, body {
 .header h1 {
   display: inline-block;
   color: #7F7F7F;
+
 }
 .main {
   background-color: #f2f2f2;
   padding: 40px;
   min-height: 80%;
 }
+
+.main-header {
+  cursor: pointer;
+}
+
 .main h2 {
   background-color: #DDDDDD;
   color: #329797;

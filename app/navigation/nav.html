@@ -1,6 +1,6 @@
 <div class="header" ng-controller='NavCtrl as navCtrl'>
   <div class="panel-header container">
-    <h1>UkrBook</h1>
+    <h1 class="main-header" ng-click="navCtrl.selectTab(1, 'home')">UkrBook</h1>
     <ul class="nav nav-tabs navbar-right">
       <span></span>
       <li ng-class="{active: navCtrl.isSelected(1)}">
