@@ -4,10 +4,22 @@ angular.module('bookStore')
     var Auth = $firebaseAuth(ref);
 
     Auth.currentUser = Auth.$getAuth();
+    Auth.$onAuth(function(authData) {
+      if (authData && authData.provider == 'anonymous') {
+
+      }
+    });
+
+    Auth.$authAnonymously().then(function(authData) {
+      console.log("Logged in as:", authData.uid);
+    }).catch(function(error) {
+      console.error("Authentication failed:", error);
+    });
+
 
     Auth.isLoggedIn = function() {
       var authData = ref.getAuth();
-      if (authData) {
+      if (authData && authData.provider !== 'anonymous') {
         return true;
       } else {
         return false;
