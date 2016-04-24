@@ -1,27 +1,34 @@
 <div class="container">
-  <h3 class="promo-header">Читай книги рідною мовою!</h3>
-  <div>
-    <h2>Щоб додати книгу до кошику - клацніть на +.<a href="#" class="cart-button">
-      <i class="fa fa-shopping-cart fa-3x"></i>
-      <span class="cart-button-quantity"> {{ bookCtrl.Cart.getItemsLength() }}</span>
-    </a></h2>
-  </div>
-
-  <!-- Виведення продуктів -->
-  <div ng-repeat="book in bookCtrl.books" class="col-md-3">
-    <div class="thumbnail">
-      <img ng-src="{{ book.coverUrl }}" />
-      <p class="title">{{ book.name }}</p>
-      <p class="author">{{ book.author }}</p>
-      <p class="price">{{ book.price + " &#8372;" }}</p>
-      <p class="date">{{ book.pubdate | date }}</p>
-      <div class="wrap">
-        <p class="add" ng-click="bookCtrl.Cart.addItem(book)">+</p>
-        <p class="add" ng-class="{'button-visible': !bookCtrl.Cart.getItem(book.$id)}" ng-click="bookCtrl.Cart.removeItem(book)">-</p>
-        <p class="alert alert-info" ng-class="{'button-visible': !bookCtrl.Cart.getItem(book.$id)}"> {{ bookCtrl.Cart.getItem(book.$id).quantity }} у кошику</p>
-      </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="promo-header">
+                  Читай книги рідною мовою!
+            </h3>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2">
+            <a href="#" class="cart-button">
+                <i class="fa fa-shopping-cart fa-3x"></i>
+                <span class="cart-button-quantity"> {{ bookCtrl.Cart.getItemsLength() }}</span>
+            </a>
+        </div>
     </div>
-  </div>
+
+    <!-- Виведення продуктів -->
+    <div ng-repeat="book in bookCtrl.books" class="col-md-3 book-container">
+        <div class="thumbnail">
+            <img ng-src="{{ book.coverUrl }}" />
+            <p class="title">{{ book.name }}</p>
+            <p class="author">{{ book.author }}</p>
+            <p class="price">{{ book.price + " &#8372;" }}</p>
+            <p class="date">{{ book.pubdate | date }}</p>
+            <div class="wrap">
+                <p class="add" ng-click="bookCtrl.Cart.addItem(book)">+</p>
+                <p class="add" ng-class="{'button-visible': !bookCtrl.Cart.getItem(book.$id)}" ng-click="bookCtrl.Cart.removeItem(book)">-</p>
+                <p class="alert alert-info" ng-class="{'button-visible': !bookCtrl.Cart.getItem(book.$id)}"> {{ bookCtrl.Cart.getItem(book.$id).quantity }} у кошику</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Дно сторінки -->

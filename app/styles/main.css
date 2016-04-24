@@ -3,19 +3,9 @@ html, body {
   padding: 0;
   font-family: 'Roboto', sans-serif;
   width: 100%;
+  background-color: #f2f2f2;
 }
-.header {
-  padding: 5px;
-  margin-bottom: -50px;
-}
-.header img {
-  display: inline-block;
-}
-.header h1 {
-  display: inline-block;
-  color: #7F7F7F;
 
-}
 .main {
   background-color: #f2f2f2;
   padding: 40px;
@@ -24,6 +14,7 @@ html, body {
 
 .main-header {
   cursor: pointer;
+  color: #7F7F7F;
 }
 
 .main h2 {
@@ -35,12 +26,13 @@ html, body {
   padding-left: 20px;
 }
 .thumbnail {
-  border: 0px;
+  border: 0;
   position: relative;
   line-height: normal;
   padding: 5px;
   margin-bottom: 10px;
   margin-top: 10px;
+  max-height: 500px;
 }
 .thumbnail img {
   margin-top: 10px;
@@ -126,17 +118,15 @@ html, body {
   float: right;
 }
 .panel-header {
-  padding-bottom: 50px;
+  background-color: white;
+  margin: 2em 0 0 0;
+
 }
-.nav {
-  position: relative;
-  top: 33px;
-}
+
 .promo-header {
   color: #F65A5B;
   font-size: 40px;
-  margin: 0 0 50px 0;
-  padding: 10px 0;
+  padding: 0 0 0 15px;
 }
 a:focus {
   outline: none;
@@ -147,4 +137,13 @@ table, tr, th {
 
 .button-visible {
   visibility:hidden;
+}
+
+navigation {
+  background-color: white;
+}
+
+.nav > li > a {
+  padding: 25px 15px;
+  font-weight: 500;
 }
