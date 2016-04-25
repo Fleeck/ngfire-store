@@ -1,28 +1,28 @@
 <div class="container" ng-controller='NavCtrl as navCtrl'>
   <div class="panel-header row">
     <div class="col-sm-4">
-      <h1 class="main-header" ng-click="navCtrl.selectTab(1, 'home')">UkrBook</h1>
+      <h1 class="main-header" ng-click="navCtrl.selectTab(1, 'home')"><span style="color:#247BA0">Ukr </span><span style="color:#FFE066">Book</span></h1>
     </div>
     <div class="col-sm-2"></div>
     <div class="col-sm-6">
       <ul class="nav nav-tabs navbar-right">
         <li ng-class="{active: navCtrl.isSelected(1)}">
-          <a href ng-click="navCtrl.selectTab(1, 'home')">Головна</a>
+          <a href class="nav-item" ng-click="navCtrl.selectTab(1, 'home')">Головна</a>
         </li>
         <li ng-class="{active: navCtrl.isSelected(4)}">
-          <a href ng-click="navCtrl.selectTab(4, 'about')">Про нас</a>
+          <a href class="nav-item" ng-click="navCtrl.selectTab(4, 'about')">Про нас</a>
         </li>
         <li ng-hide="navCtrl.isLoggedIn()" ng-class="{active: navCtrl.isSelected(2)}">
-          <a href ng-click="navCtrl.selectTab(2, 'login')">Увійти</a>
+          <a href class="nav-item" ng-click="navCtrl.selectTab(2, 'login')">Увійти</a>
         </li>
         <li ng-hide="navCtrl.isLoggedIn()" ng-class="{active: navCtrl.isSelected(3)}">
-          <a href ng-click="navCtrl.selectTab(3, 'register')">Зареєструватись</a>
+          <a href class="nav-item" ng-click="navCtrl.selectTab(3, 'register')">Зареєструватись</a>
         </li>
         <li ng-show="navCtrl.isLoggedIn()" ng-class="{active: navCtrl.isSelected(5)}">
-          <a href ng-click="navCtrl.selectTab(5, 'profile')">{{ navCtrl.currentUser.password.email }}</a>
+          <a href class="nav-item" ng-click="navCtrl.selectTab(5, 'profile')">{{ navCtrl.currentUser.password.email }}</a>
         </li>
         <li ng-show="navCtrl.isLoggedIn()" ng-class="{active: navCtrl.isSelected(6)}">
-          <a href ng-click="navCtrl.selectTab(6, 'home', navCtrl.logout())">Вийти</a>
+          <a href class="nav-item" ng-click="navCtrl.selectTab(6, 'home', navCtrl.logout())">Вийти</a>
         </li>
       </ul>
     </div>

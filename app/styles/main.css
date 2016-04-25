@@ -14,7 +14,7 @@ html, body {
 
 .main-header {
   cursor: pointer;
-  color: #7F7F7F;
+  color: #70C1B3;
 }
 
 .main h2 {
@@ -56,12 +56,12 @@ html, body {
   font-weight: 200;
 }
 .price {
-  background-color: #39D1B4;
-  color: #fff;
+  background-color: #FFE066;
+  color: #50514F;
   font-size: 14px;
   border-radius: 50%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  font-weight: 200;
+  font-weight: 600;
   height: 50px;
   line-height: 50px;
   text-align: center;
@@ -71,7 +71,7 @@ html, body {
   right: 0px;
 }
 .button-add {
-  background: #F65A5B;
+  background: #F25F5C;
   color: #fff;
   cursor: pointer;
   display: inline-block;
@@ -88,7 +88,7 @@ html, body {
   bottom: 0;
 }
 .button-remove {
-  background: #F65A5B;
+  background: #F25F5C;
   color: #fff;
   cursor: pointer;
   display: inline-block;
@@ -131,6 +131,7 @@ html, body {
   position: relative;
   float: right;
   padding-top: 20px;
+  color: #247BA0;
 }
 .panel-header {
   background-color: white;
@@ -139,7 +140,7 @@ html, body {
 }
 
 .promo-header {
-  color: #F65A5B;
+  color: #F25F5C;
   font-size: 40px;
   padding: 0 0 0 15px;
 }
@@ -169,3 +170,14 @@ navigation {
   right: 0;
   margin: 5px;
 }
+.alert-info {
+  color: #247BA0;
+  border-color: #247BA0;
+}
+.nav-item {
+  color: #50514F;
+}
+.nav-tabs>li.active>a {
+  background-color: #ccc!important;
+}
+
