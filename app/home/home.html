@@ -5,7 +5,7 @@
                   Читай книги рідною мовою!
             </h3>
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-4"></div>
         <div class="col-md-2">
             <a href="#" class="cart-button">
                 <i class="fa fa-shopping-cart fa-3x"></i>
@@ -22,10 +22,10 @@
             <p class="author">{{ book.author }}</p>
             <p class="price">{{ book.price + " &#8372;" }}</p>
             <p class="date">{{ book.pubdate | date }}</p>
-            <div class="wrap">
-                <p class="add" ng-click="bookCtrl.Cart.addItem(book)">+</p>
-                <p class="add" ng-class="{'button-visible': !bookCtrl.Cart.getItem(book.$id)}" ng-click="bookCtrl.Cart.removeItem(book)">-</p>
-                <p class="alert alert-info" ng-class="{'button-visible': !bookCtrl.Cart.getItem(book.$id)}"> {{ bookCtrl.Cart.getItem(book.$id).quantity }} у кошику</p>
+            <div class="container-fluid">
+                <p class="button-add" ng-click="bookCtrl.Cart.addItem(book)">+</p>
+                <p class="button-remove" ng-class="{'button-visible': !bookCtrl.Cart.getItem(book.$id)}" ng-click="bookCtrl.Cart.removeItem(book)">-</p>
+                <div class="alert alert-info" ng-class="{'button-visible': !bookCtrl.Cart.getItem(book.$id)}"> {{ bookCtrl.Cart.getItem(book.$id).quantity }} у кошику</div>
             </div>
         </div>
     </div>
