@@ -182,3 +182,11 @@ navigation {
   background-color: #ccc!important;
 }
 
+.fa {
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  padding: 0 5px;
+}
+.fa:hover {
+  transform: scale(1.5);
+}

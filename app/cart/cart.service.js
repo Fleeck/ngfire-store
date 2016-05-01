@@ -2,23 +2,24 @@ angular.module('bookStore')
   .factory('Cart', function(FirebaseUrl, $firebaseArray, $firebaseObject, $state, Auth) {
 
     var cartsRef = new Firebase(FirebaseUrl + '/carts');
-    var userId, cartRef, cartItems;
+    var userId, cartRef;
 
     Auth.$onAuth(function(authData) {
       userId = authData && authData.uid;
       cartRef = new Firebase(cartsRef + '/' + userId);
-      cartItems = $firebaseArray(cartRef);
+      Cart.items = $firebaseArray(cartRef);
     });
 
     var Cart = {
-      cartItems: cartItems,
+
+      items: [],
 
       addItem: function(item) {
-        var itemInCart = cartItems.$getRecord(item.$id);
+        var itemInCart = Cart.items.$getRecord(item.$id);
         if (itemInCart) {
           itemInCart.quantity++;
           console.log('Quantity of ' + itemInCart.name + ' now = ' + itemInCart.quantity);
-          return cartItems.$save(itemInCart);
+          return Cart.items.$save(itemInCart);
         } else {
           console.log('Adding item ' + item.name + '  to:  ' + cartRef);
           return cartRef.child(item.$id).set({
@@ -33,23 +34,26 @@ angular.module('bookStore')
         }
       },
 
-      removeItem: function(item) {
-        var itemInCart = cartItems.$getRecord(item.$id);
+      removeItem: function(item, removeCompletely) {
+        var itemInCart = Cart.items.$getRecord(item.$id);
+        if (removeCompletely) {
+          return Cart.items.$remove(itemInCart);
+        }
         if (itemInCart) {
           if (itemInCart.quantity === 1) {
             console.log('Removing ' + itemInCart.name);
-            return cartItems.$remove(itemInCart);
+            return Cart.items.$remove(itemInCart);
           } else {
             itemInCart.quantity--;
             console.log('Quantity of ' + itemInCart.name + ' now = ' + itemInCart.quantity);
-            return cartItems.$save(itemInCart);
+            return Cart.items.$save(itemInCart);
           }
         }
       },
 
       getItem: function(id) {
         if (id) {
-          return cartItems.$getRecord(id);
+          return Cart.items.$getRecord(id);
         } else {
           return false;
         }
@@ -57,7 +61,7 @@ angular.module('bookStore')
       },
 
       getItemsLength: function() {
-        return cartItems && cartItems.length;
+        return Cart.items && Cart.items.length;
       }
     };
 

@@ -7,7 +7,7 @@
         </div>
         <div class="col-md-4"></div>
         <div class="col-md-2">
-            <a href="#" class="cart-button">
+            <a ui-sref="cart({userId: bookCtrl.currentUser.uid})" href="#" class="cart-button">
                 <i class="fa fa-shopping-cart fa-3x"></i>
                 <span class="cart-button-quantity"> {{ bookCtrl.Cart.getItemsLength() }}</span>
             </a>
