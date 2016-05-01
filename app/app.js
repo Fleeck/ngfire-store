@@ -3,7 +3,8 @@
 angular
   .module('bookStore', [
     'firebase',
-    'ui.router'
+    'ui.router',
+    'ui.bootstrap'
   ])
   .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
