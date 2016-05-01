@@ -1,5 +1,5 @@
 angular.module('bookStore')
-  .factory('Books', function(FirebaseUrl, $firebaseArray, $firebaseObject, $state, $stateParams) {
+  .factory('Books', function(FirebaseUrl, $firebaseArray, $firebaseObject, $state) {
 
     var booksRef = new Firebase(FirebaseUrl + '/books');
     var books = $firebaseArray(booksRef);
@@ -40,7 +40,7 @@ angular.module('bookStore')
       },
 
       all: books
-    }
+    };
 
     return Books;
   });

@@ -10,7 +10,7 @@ angular
       .state('home', {
         url: '/',
         controller: 'BookCtrl as bookCtrl',
-        templateUrl: 'home/home.html',
+        templateUrl: 'home/home.html'
       })
       .state('login', {
         url: '/login',
@@ -60,7 +60,7 @@ angular
         url: '/:userId/cart',
         templateUrl: 'cart/cart.html',
         controller: 'CartCtrl as cartCtrl'
-      })
+      });
 
     $urlRouterProvider.otherwise('/');
   })

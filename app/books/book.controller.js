@@ -1,5 +1,5 @@
 angular.module('bookStore')
-  .controller('BookCtrl', function(Books, $state, Cart) {
+  .controller('BookCtrl', function(Books, $state, Cart, Auth) {
     var bookCtrl = this;
 
     bookCtrl.addBook = Books.addBook;
@@ -10,14 +10,15 @@ angular.module('bookStore')
     bookCtrl.currentBook = $state.params.data;
     bookCtrl.deleteBook = Books.deleteBook;
     bookCtrl.Cart = Cart;
+    bookCtrl.currentUser = Auth.currentUser;
 
     bookCtrl.createBook = function(){
       return $state.go('books_new');
-    }
+    };
 
     bookCtrl.goBack = function(){
       return $state.go('books');
-    }
+    };
 
     bookCtrl.book = {
       name: '',
