@@ -1,10 +1,10 @@
 angular.module('bookStore')
-  .controller('CartCtrl', function(Cart, Auth) {
+  .controller('CartCtrl', function(Cart, Auth, Orders) {
     var cartCtrl = this;
     cartCtrl.Cart = Cart;
     cartCtrl.currentUser = Auth.currentUser;
+    cartCtrl.Orders = Orders;
     cartCtrl.getCorrectBookSign = function() {
-
       switch (cartCtrl.getSummaryQuantity()) {
         case 1:
           return 'книга';
@@ -17,19 +17,19 @@ angular.module('bookStore')
       }
     };
 
-    cartCtrl.getSummaryPrice = function() {
-      var sum = 0;
-      cartCtrl.Cart.items.forEach(function(item){
-        sum += item.quantity * item.price;
-      });
-      return sum;
-    };
-
     cartCtrl.getSummaryQuantity = function() {
       var quantity = 0;
       cartCtrl.Cart.items.forEach(function(item){
         quantity += item.quantity;
       });
       return quantity;
+    };
+
+    cartCtrl.order = {
+      done: false,
+      books: {},
+      date: '',
+      price: 0,
+      userId: ''
     }
   });

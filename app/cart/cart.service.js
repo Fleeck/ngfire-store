@@ -62,6 +62,18 @@ angular.module('bookStore')
 
       getItemsLength: function() {
         return Cart.items && Cart.items.length;
+      },
+
+      getUserId: function() {
+        return userId;
+      },
+
+      getSummaryPrice: function() {
+      var sum = 0;
+      Cart.items.forEach(function(item){
+        sum += item.quantity * item.price;
+      });
+      return sum;
       }
     };
 

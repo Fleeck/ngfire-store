@@ -5,7 +5,9 @@ angular.module('bookStore')
     authCtrl.user = {
       name: '',
       email: '',
-      password: ''
+      password: '',
+      phone: '',
+      city: ''
     };
 
     authCtrl.login = function() {

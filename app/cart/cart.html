@@ -4,7 +4,7 @@
     Ваше замовлення:
     {{cartCtrl.getSummaryQuantity()}}
     {{cartCtrl.getCorrectBookSign()}} загальною вартістю
-    {{cartCtrl.getSummaryPrice()}} грн.
+    {{cartCtrl.Cart.getSummaryPrice()}} грн.
   </h4>
   <table class='table table-responsive table-hover table-bordered'>
     <thead>
@@ -26,12 +26,40 @@
       <td>{{ book.pagesCount}}</td>
       <td>{{ book.quantity }}</td>
       <td>
-        <span ng-click="cartCtrl.Cart.addItem(book)"><i class="fa fa-plus fa-lg" aria-hidden="true"></i></span>
-        <span ng-click="cartCtrl.Cart.removeItem(book)"><i class="fa fa-minus fa-lg" aria-hidden="true"></i></span>
-        <span ng-click="cartCtrl.Cart.removeItem(book, true)"><i class="fa fa-times fa-lg" aria-hidden="true"></i></span>
+        <span ng-click="cartCtrl.Cart.addItem(book)"><i class="icon fa fa-plus fa-lg" aria-hidden="true"></i></span>
+        <span ng-click="cartCtrl.Cart.removeItem(book)"><i class="icon fa fa-minus fa-lg" aria-hidden="true"></i></span>
+        <span ng-click="cartCtrl.Cart.removeItem(book, true)"><i class="icon fa fa-times fa-lg" aria-hidden="true"></i></span>
       </td>
     </tr>
   </table>
   </div>
+  <div class="row">
+    <p>Якщо Вас влаштовує кількість книг - заповніть форму замовлення нижче і ми обов'язково з Вами зв'яжемось!</p>
 
+    <form ng-submit="cartCtrl.Orders.saveOrder(cartCtrl.order)" role="form">
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label for="text">Ім'я та прізвище:</label>
+          <input class="form-control" type="text" ng-model="cartCtrl.currentUser.name" placeholder="Наприклад: Тарас Шевченко">
+        </div>
+        <div class="form-group">
+          <label for="email"> Електронна скринька:</label>
+          <input class="form-control" type="email" ng-model="cartCtrl.currentUser.email" placeholder="Наприклад: taras@gmail.com">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label for="text">Номер телефону:</label>
+          <input types="text"  class="form-control" ng-model="cartCtrl.currentUser.phone" placeholder="Наприклад: 0936782301">
+        </div>
+        <div class="form-group">
+          <label for="text">Місто: </label>
+          <input type="text" class="form-control" ng-model="cartCtrl.currentUser.city" placeholder="Наприклад: Львів">
+          <br>
+          <button type="submit" class="btn btn-default">Замовити</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
 </div>
