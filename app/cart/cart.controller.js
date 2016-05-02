@@ -1,8 +1,8 @@
 angular.module('bookStore')
-  .controller('CartCtrl', function(Cart, Auth, Orders) {
+  .controller('CartCtrl', function(Cart, Auth, Orders, Users) {
     var cartCtrl = this;
     cartCtrl.Cart = Cart;
-    cartCtrl.currentUser = Auth.currentUser;
+    cartCtrl.currentUser = Users.getUser(Auth.currentUser.uid);
     cartCtrl.Orders = Orders;
     cartCtrl.getCorrectBookSign = function() {
       switch (cartCtrl.getSummaryQuantity()) {

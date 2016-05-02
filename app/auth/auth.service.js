@@ -1,5 +1,5 @@
 angular.module('bookStore')
-  .factory('Auth', function($firebaseAuth, FirebaseUrl, $state) {
+  .factory('Auth', function($firebaseAuth, $firebaseArray, FirebaseUrl, $state) {
     var ref = new Firebase(FirebaseUrl);
     var Auth = $firebaseAuth(ref);
 
@@ -31,5 +31,6 @@ angular.module('bookStore')
         authCtrl.error = error;
       });
     };
+
     return Auth;
   });
