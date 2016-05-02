@@ -9,13 +9,12 @@ angular.module('bookStore')
         return usersRef.child(user.uid).set(user);
       },
       getUser: function(uid) {
-        return $firebaseObject(usersRef.child(uid));
+        return users.$getRecord(uid);
       },
-      getUserName: function(uid) {
-        if (users.$getRecord(uid)) {
-          return users.$getRecord(uid).name;
-        }
+      updateUser: function(user){
+        return usersRef.child(user.uid).update(user);
       },
+
       all: users
     };
 
