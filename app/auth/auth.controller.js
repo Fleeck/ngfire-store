@@ -20,12 +20,14 @@ angular.module('bookStore')
     };
 
     authCtrl.register = function() {
-      Auth.$createUser(authCtrl.user).then(function(user) {
+      Auth.$createUser(authCtrl.user).then(function() {
         Auth.$authWithPassword(authCtrl.user).then(function(authData) {
           Users.saveUser({
             uid: authData.uid,
             name: authCtrl.user.name,
-            mail: authData.password.email
+            email: authCtrl.user.email,
+            phone: authCtrl.user.phone,
+            city: authCtrl.user.city
           });
           console.log('Registered');
           $state.go('home');
