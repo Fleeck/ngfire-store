@@ -26,10 +26,16 @@ angular.module('bookStore')
     };
 
     cartCtrl.order = {
-      done: false,
+      status: 'Не виконано',
       books: {},
       date: '',
       price: 0,
-      userId: ''
+      customer: {
+        uid: cartCtrl.currentUser.uid,
+        name: cartCtrl.currentUser.name,
+        phone: cartCtrl.currentUser.phone,
+        email: cartCtrl.currentUser.email,
+        city: cartCtrl.currentUser.city
+      }
     }
   });

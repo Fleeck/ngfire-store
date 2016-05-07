@@ -40,21 +40,21 @@
       <div class="col-sm-3">
         <div class="form-group">
           <label for="text">Ім'я та прізвище:</label>
-          <input class="form-control" type="text" ng-model="cartCtrl.currentUser.orderName" placeholder="Наприклад: Тарас Шевченко">
+          <input class="form-control" type="text" ng-model="cartCtrl.order.customer.name" placeholder="Наприклад: Тарас Шевченко">
         </div>
         <div class="form-group">
           <label for="email"> Електронна скринька:</label>
-          <input class="form-control" type="email" ng-model="cartCtrl.currentUser.orderEmail" placeholder="Наприклад: taras@gmail.com">
+          <input class="form-control" type="email" ng-model="cartCtrl.order.customer.email" placeholder="Наприклад: taras@gmail.com">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label for="text">Номер телефону:</label>
-          <input types="text"  class="form-control" ng-model="cartCtrl.currentUser.phone" placeholder="Наприклад: 0936782301">
+          <input types="text"  class="form-control" ng-model="cartCtrl.order.customer.phone" placeholder="Наприклад: 0936782301">
         </div>
         <div class="form-group">
           <label for="text">Місто: </label>
-          <input type="text" class="form-control" ng-model="cartCtrl.currentUser.city" placeholder="Наприклад: Львів">
+          <input type="text" class="form-control" ng-model="cartCtrl.order.customer.city" placeholder="Наприклад: Львів">
           <br>
           <button type="submit" class="btn btn-default">Замовити</button>
         </div>
