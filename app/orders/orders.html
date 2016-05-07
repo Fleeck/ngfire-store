@@ -1,11 +1,5 @@
 <div class="container">
     <div class="row">
-        <h4 class="promo-header">
-            Ваше замовлення:
-            {{cartCtrl.getSummaryQuantity()}}
-            {{cartCtrl.getCorrectBookSign()}} загальною вартістю
-            {{cartCtrl.Cart.getSummaryPrice()}} грн.
-        </h4>
 
         Замовник
         Телефон
@@ -14,22 +8,25 @@
         Дата замовлення
         Виконано
         Ціна замовлення
+        <br>
         <table class='table table-responsive table-hover table-bordered'>
             <thead>
             <tr>
                 <th>Дата</th>
                 <th>Замовник</th>
                 <th>Варість замовлення</th>
-                <th>Ціна</th>
                 <th>Кількість</th>
+                <th>Замовлення</th>
+                <th>Статус</th>
             </tr>
             </thead>
             <tr ng-repeat="order in ordersCtrl.Orders.getOrders()">
                 <td>{{ order.date }}</td>
-                <td>{{ ordersCtrl.getUser(order.userId).name}}</td>
+                <td>{{ order.customer.name }}</td>
                 <td>{{ order.price }}</td>
-                <td>{{ book.price }}</td>
-                <td>{{ book.quantity }}</td>
+                <td>{{ order.books.length }}</td>
+                <td> Показати </td>
+                <td>{{ order.status }}</td>
             </tr>
         </table>
     </div>

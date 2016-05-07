@@ -3,4 +3,5 @@ angular.module('bookStore')
     var ordersCtrl = this;
     ordersCtrl.Cart = Cart;
     ordersCtrl.Orders = Orders;
+    ordersCtrl.getUser = Users.getUser;
   });

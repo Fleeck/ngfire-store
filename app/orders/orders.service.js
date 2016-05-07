@@ -7,10 +7,6 @@ angular.module('bookStore')
       saveOrder: function(order) {
         moment.locale('uk');
         Orders.saveOrderInfo(order);
-        // debugger;
-        if (Auth.currentUser.provider !== "anonymous") {
-          Orders.saveUserInfo(Users.getUser(Auth.currentUser.uid));
-        }
         return orders.$add(order).then(function(ref){
           console.log('Saved order ' + ref);
         }, function(error){
@@ -23,20 +19,12 @@ angular.module('bookStore')
       getOrders: function(){
         return orders;
       },
-      saveUserInfo: function(user){
-        Users.updateUser({
-          uid: user.uid,
-          orderName: user.orderName,
-          orderEmail: user.orderEmail,
-          phone: user.phone,
-          city: user.city
-        });
-      },
+
       saveOrderInfo: function(order){
         order.date = moment().format('LLLL');
         order.books = Cart.items;
         order.price = Cart.getSummaryPrice();
-        order.userId = Cart.getUserId();
+        order.customer.uid = Cart.getUserId();
       }
     };
 
